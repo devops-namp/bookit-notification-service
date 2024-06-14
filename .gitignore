@@ -1,0 +1,5 @@
+
+notification-service/src/main/resources/privatekey.pem
+notification-service/src/main/resources/publickey.pem
+notification-service/src/test/resources/privatekey.pem
+notification-service/src/test/resources/publickey.pem

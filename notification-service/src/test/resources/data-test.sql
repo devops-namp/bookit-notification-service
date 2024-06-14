@@ -1,0 +1,2 @@
+--INSERT INTO notification (id, text, recipientId, read, time)
+--VALUES ('60df78a935534ca5ae8e0b0d', 'Test Notification', 'user1', false, CURRENT_TIMESTAMP);

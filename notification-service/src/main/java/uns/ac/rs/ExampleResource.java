@@ -1,4 +1,4 @@
-package org.acme;
+package uns.ac.rs;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
