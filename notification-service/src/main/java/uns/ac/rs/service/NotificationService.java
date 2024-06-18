@@ -20,8 +20,7 @@ public class NotificationService {
 
     public void sendNotification(Notification notification) {
         notificationRepository.persist(notification);
-        notificationWebSocket.sendNotification("1", notification.toJson());
-
+        notificationWebSocket.sendNotification(notification.getRecipientId(), notification.toJson());
     }
 
     public void markAsRead(String id) {
