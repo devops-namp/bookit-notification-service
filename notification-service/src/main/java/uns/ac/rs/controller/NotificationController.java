@@ -1,6 +1,7 @@
 package uns.ac.rs.controller;
 
 import io.vertx.core.json.JsonObject;
+import jakarta.annotation.security.PermitAll;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -45,5 +46,11 @@ public class NotificationController {
         List<Notification> unreadNotifications = notificationService.findUnreadByRecipientId(recipientId);
         System.out.println(unreadNotifications.size());
         return Response.ok(unreadNotifications).build();
+    }
+
+    @GET
+    @Path("/health")
+    public Response health() {
+        return Response.ok().build();
     }
 }
