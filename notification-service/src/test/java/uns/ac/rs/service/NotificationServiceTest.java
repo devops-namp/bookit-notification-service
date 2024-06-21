@@ -43,7 +43,7 @@ public class NotificationServiceTest {
         notificationService.sendNotification(notification);
 
         verify(notificationRepository).persist(notification);
-        verify(notificationWebSocket).sendNotification(eq("1"), anyString());
+        verify(notificationWebSocket).sendNotification(eq("recipient123"), anyString());
     }
 
     @Test
