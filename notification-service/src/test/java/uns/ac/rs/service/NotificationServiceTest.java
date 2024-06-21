@@ -40,7 +40,7 @@ public class NotificationServiceTest {
         notification.setId(new ObjectId());
         notification.setRecipientId("recipient123");
 
-        notificationService.sendNotification(notification);
+        notificationService.handleNotification(notification);
 
         verify(notificationRepository).persist(notification);
         verify(notificationWebSocket).sendNotification(eq("recipient123"), anyString());
