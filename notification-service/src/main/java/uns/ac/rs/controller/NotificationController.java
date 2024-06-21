@@ -22,11 +22,11 @@ public class NotificationController {
     @Inject
     NotificationService notificationService;
 
-    @Incoming("notification-queue")
+    @Incoming("notification-check-queue")
     public Response getNotification(JsonObject json) {
         NotificationEvent event = json.mapTo(NotificationEvent.class);
         System.out.println(event.getText());
-        notificationService.sendNotification(new Notification(event));
+        notificationService.handleNotification(new Notification(event));
         return Response.ok().build();
     }
 
@@ -41,9 +41,10 @@ public class NotificationController {
 
     @GET
     @Path("/{id}")
-    @RolesAllowed({"HOST", "GUEST" })
-    public Response getByUser(@PathParam("id") String recipientId) {
-        List<Notification> unreadNotifications = notificationService.findUnreadByRecipientId(recipientId);
+//    @RolesAllowed({"HOST", "GUEST" })
+    @PermitAll
+    public Response getByUser(@PathParam("id") String id) {
+        List<Notification> unreadNotifications = notificationService.findUnreadByRecipientId(id);
         System.out.println(unreadNotifications.size());
         return Response.ok(unreadNotifications).build();
     }

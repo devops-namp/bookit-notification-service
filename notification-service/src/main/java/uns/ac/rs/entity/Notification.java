@@ -22,6 +22,8 @@ public class Notification {
     private boolean read;
     private LocalDateTime time;
 
+
+
     public Notification(NotificationEvent event) {
         this.text = event.getText();
         this.recipientId = event.getRecipientId();
