@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 //import uns.ac.rs.controller.NotificationWebSocket;
 import uns.ac.rs.controller.NotificationWebSocket;
 import uns.ac.rs.entity.Notification;
+import uns.ac.rs.entity.NotificationEvent;
 import uns.ac.rs.repository.NotificationRepository;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class NotificationService {
     @Inject
     NotificationWebSocket notificationWebSocket;
 
-    public void sendNotification(Notification notification) {
+    public void handleNotification(Notification notification) {
         notificationRepository.persist(notification);
         notificationWebSocket.sendNotification(notification.getRecipientId(), notification.toJson());
     }
